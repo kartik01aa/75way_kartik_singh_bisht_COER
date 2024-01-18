@@ -1,7 +1,7 @@
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
 import { Request, Response, NextFunction } from "express";
-import { User } from "../models/schema";
+import { User, Product } from "../models/schema";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -15,12 +15,13 @@ const storage = multer.diskStorage({
 export const upload = multer({ storage: storage });
 
 cloudinary.config({
-  cloud_name: "drm7dvyyt",
-  api_key: "753724826474299",
-  api_secret: "2XbN2SSaxAD0uaONp7oZTEITTu4",
+  cloud_name: "ddxpchjay",
+  api_key: "957539457285927",
+  api_secret: "jvjhjIR838M6QX7OVW7FyWZyS00",
   secure: true,
 });
 let url: string;
+let urlArray: string[] = [];
 
 let fileUploader = async (req: Request, res: Response, next: NextFunction) => {
   const id = req.cookies.id;
@@ -37,10 +38,48 @@ let fileUploader = async (req: Request, res: Response, next: NextFunction) => {
           imageUrl: url,
         }
       );
-      return res.status(200).json({msg:"Image uploader successfully"})
+
+      return res.status(200).json({ msg: "Image uploader successfully" });
     }
   } catch (err) {
     return res.status(400).json({ msg: err });
   }
 };
-export { fileUploader, url };
+
+let productImageUploader = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const productId = req.cookies.productId;
+  console.log(productId);
+  try {
+    let sarray = [];
+    if (req.files) {
+      const files = Array.isArray(req.files) ? req.files : [req.files];
+
+      for (const file of files) {
+        const result = await cloudinary.uploader.upload(file.path as string);
+        sarray.push(result.secure_url);
+      }
+      urlArray = sarray;
+      console.log(sarray);
+      console.log(urlArray);
+
+      await Product.findByIdAndUpdate(
+        { _id: productId },
+        {
+          $set: {
+            productImageUrl: urlArray,
+          },
+        }
+      );
+      return res.status(200).json({ msg: "Image uploaded successfully" });
+    }
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({ msg: err });
+  }
+};
+
+export { fileUploader, productImageUploader, url, urlArray };

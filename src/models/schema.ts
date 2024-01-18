@@ -14,6 +14,7 @@ interface User {
 interface Product {
   name: string;
   quantity: number;
+  productImageUrl:Array<string>;
 }
 
 // Schema user
@@ -37,6 +38,7 @@ const schema = new Schema<User>({
 export const schema2 = new Schema<Product>({
   name: { type: String, required: true },
   quantity: { type: Number, required: true },
+  productImageUrl:[String],
 });
 const User=  model("User", schema)
 const Product=  model("Product", schema2)

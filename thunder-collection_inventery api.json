@@ -1,0 +1,204 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "inventery api",
+    "dateExported": "2024-01-18T11:09:16.136Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5f68805e-ebf3-4975-8f71-010cb9846fd9",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "upload product image api",
+            "url": "http://localhost:5000/uploadImageProduct",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-01-18T11:08:08.467Z",
+            "modified": "2024-01-18T11:08:08.467Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "images",
+                        "value": "/Users/75way/kartik/download (6).jpeg"
+                    },
+                    {
+                        "name": "images",
+                        "value": "/Users/75way/kartik/download (7).jpeg"
+                    },
+                    {
+                        "name": "images",
+                        "value": "/Users/75way/kartik/download (8).jpeg"
+                    },
+                    {
+                        "name": "images",
+                        "value": "/Users/75way/kartik/download (9).jpeg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "4958c509-e7cb-4a8c-b746-b118b31276fb",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "upload user profile picture (After register user) api",
+            "url": "http://localhost:5000/uploadImageUser",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-01-18T11:08:17.439Z",
+            "modified": "2024-01-18T11:08:17.439Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/75way/kartik/images.jpeg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f537104-ca3a-4cae-8b1f-b488063c5bb7",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "register user api",
+            "url": "http://localhost:5000/registerUser",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-18T11:08:22.519Z",
+            "modified": "2024-01-18T11:08:22.519Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Riya3Sharma\",\n  \"age\":20,\n  \"email\":\"riya3@gmail.com\",\n  \"password\":\"@Riya111k\",\n  \"gender\":\"female\",\n  \"phone\":\"9896972846\",\n  \"roles\":\"user\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2fb2c0a3-2790-4f14-8a2c-41f5b78f8268",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "login api",
+            "url": "http://localhost:5000/loginUser",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-01-18T11:08:27.432Z",
+            "modified": "2024-01-18T11:08:27.432Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"kartik.75way@gmail.com\",\n  \"password\":\"@Kartik111k\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2d4e6f6f-f816-46ac-9ae5-931cd288ca15",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "order product api",
+            "url": "http://localhost:5000/orderproduct",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-01-18T11:08:42.879Z",
+            "modified": "2024-01-18T11:08:42.879Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"cooler\",\n  \"quantity\":25\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ae654837-c5e6-4a3d-a044-e80bfe900992",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "add product api",
+            "url": "http://localhost:5000/addProduct",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-01-18T11:08:48.407Z",
+            "modified": "2024-01-18T11:08:48.407Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"laptop\",\n  \"quantity\":44\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f243cca7-f42c-48ce-898b-d83bc3b87de2",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "get all product api",
+            "url": "http://localhost:5000/getAllProduct",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-01-18T11:08:58.975Z",
+            "modified": "2024-01-18T11:08:58.975Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9d8fef5d-838a-45cf-9c5e-c3327bdb3be4",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "Get al user api",
+            "url": "http://localhost:5000/getAllUsers",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-01-18T11:09:03.231Z",
+            "modified": "2024-01-18T11:09:03.231Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "55cf8b2d-fcf1-485b-9b93-85218c585f43",
+            "colId": "351c10e2-fc3e-43b1-9684-c6751fbed053",
+            "containerId": "",
+            "name": "Logout api",
+            "url": "http://localhost:5000/logout",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-01-18T11:09:08.567Z",
+            "modified": "2024-01-18T11:09:08.567Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

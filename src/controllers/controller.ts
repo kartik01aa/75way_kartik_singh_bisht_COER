@@ -3,6 +3,7 @@ import { User, Product } from "../models/schema";
 import CustomAPIError from "../errors/custom-error";
 import { genSaltSync, hashSync, compareSync } from "bcrypt";
 import Jwt from "jsonwebtoken";
+import {sendQuantityEmail} from '../controllers/nodemailer'
 
 
 export const registerUser: RequestHandler = async (req, res, next) => {
@@ -131,6 +132,8 @@ export const addItems: RequestHandler = async (req, res, next) => {
       name,
       quantity,
     }).save();
+    const product = await Product.findOne({ name: `${name}` }).exec()
+    res.cookie('productId',product?._id,{httpOnly : true }) ; 
 
     return res.status(200).json({ msg: "New product added" });
   } catch (err) {
@@ -140,7 +143,6 @@ export const addItems: RequestHandler = async (req, res, next) => {
 export const orderProduct: RequestHandler = async (req, res, next) => {
   try {
     const { name, quantity } = req.body;
-    const id = req.cookies.id;
    
     const product = await Product.findOne({ name: `${name}` }).exec() 
     console.log(product?._id)
@@ -158,6 +160,9 @@ export const orderProduct: RequestHandler = async (req, res, next) => {
         quantity: left,
       },
     );
+    if(left <= 10){
+      await sendQuantityEmail(product?._id,product?.name, left)
+    }
 
     return res.status(200).json({ msg: "Your order executed successfully" });
   } catch (err) {
